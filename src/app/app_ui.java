@@ -38,7 +38,8 @@ public class app_ui {
 				case 1:	
 					adam.SelectEmployees();
 					break;		
-				case 2: 		 														
+				case 2: 
+					adam.SelectSalesEmployees();
 								break;
 								
 				case 3: 		 		
