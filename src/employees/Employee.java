@@ -7,6 +7,12 @@ public class Employee {
 	private int bankAccount;
 	private float startSalary;
 	private String department;
+	private String NIO;
+	
+	public Employee() {
+		
+		employeeID++;
+	}
 	
 	
 	
@@ -14,6 +20,8 @@ public class Employee {
 	
 		this.employeeID = employeeID;
 	}
+	
+	
 	public Employee(int employeeID, String name) {
 		this(employeeID);
 		this.name= name;
@@ -40,7 +48,18 @@ public class Employee {
 		this.department =  department;
 	}
 	
+	public Employee(int employeeID, String name,String address,int bankAccount, float startSalary, String department,String NIO){
+		this(employeeID,name,address,bankAccount,startSalary,department);
+		this.NIO =  NIO;
+	}
 	
+	
+	public String getNIO() {
+		return NIO;
+	}
+	public void setNIO(String nIO) {
+		NIO = nIO;
+	}
 	public int getEmployeeID() {
 		return employeeID;
 	}
