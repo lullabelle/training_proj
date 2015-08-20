@@ -1,7 +1,9 @@
 package employees;
+
 import employees.Employee;
 
 import java.util.Scanner;
+
 
 public class EmployeeTesterClass {
 	public static void main(String[] args) {

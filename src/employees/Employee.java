@@ -1,5 +1,10 @@
 package employees;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import app.DbConn;
+
 public class Employee {
 	public int employeeID;
 	private String name;
@@ -104,6 +109,21 @@ public class Employee {
 		this.department = department;
 	}
 	
+	//INSERT EMPLOYEE
+	public static void addEmployee(Connection connection,PreparedStatement preparedStatement, String name, String address, String NINO, String bankAccount, float startSalary, String department)
+			throws SQLException{
+		
+		preparedStatement = connection.prepareStatement("INSERT INTO Employee(Name, Address, NINO, Bank_Acc, Starting_Salary, Department) VALUES (?,?,?,?,?,?)");
+		preparedStatement.setString(1, name);
+		preparedStatement.setString(2, address);
+		preparedStatement.setString(3, NINO);
+		preparedStatement.setString(4, bankAccount);
+		preparedStatement.setFloat(5, startSalary);
+		preparedStatement.setString(6, department);
+		preparedStatement.executeUpdate();
+		}
+	
+	// select all employees
 	
 	
 }
