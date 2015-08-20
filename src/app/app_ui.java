@@ -42,7 +42,8 @@ public class app_ui {
 					adam.SelectSalesEmployees();
 								break;
 								
-				case 3: 		 		
+				case 3: 	
+					adam.SelectSAvailableEmployees();
 								break;
 								
 				case 4: 					
