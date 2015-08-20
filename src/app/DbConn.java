@@ -84,7 +84,7 @@ public class DbConn {
 		connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","root","Bumblebee");
 		System.out.println("Connected");
 		Statement st = connection.createStatement();
-		ResultSet rs = st.executeQuery( "Select Employee.Name, Commission_Rate, Sales_Total  from Employee, Sales_Employee where Sales_Employee.Employee_ID = Employee.Employee_ID;");
+		ResultSet rs = st.executeQuery( "Select Employee_ID, Name , Department from Employee where Employee.Employee_ID NOT IN (Select Employee_ID from Project) Group by Department");
 		ResultSetMetaData rsmd = rs.getMetaData();
 
 		
@@ -143,6 +143,10 @@ public class DbConn {
 			System.out.println("Error:" +error.getMessage());
 		}
 	}
+	
+	
+	
+	
 	
 }
 

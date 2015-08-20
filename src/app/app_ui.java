@@ -7,8 +7,8 @@ public class app_ui {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		
 		DbConn adam = new DbConn();
+	
 		//variables
 		int intMenuChoice = 0;
 		int arrayIndex;
