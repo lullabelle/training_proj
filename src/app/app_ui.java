@@ -1,13 +1,14 @@
 package app;
 
 import java.util.Scanner;
+import app.DbConn;
 
 public class app_ui {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		
-		
+		DbConn adam = new DbConn();
 		//variables
 		int intMenuChoice = 0;
 		int arrayIndex;
@@ -35,7 +36,7 @@ public class app_ui {
 				switch (intMenuChoice)
 				{
 				case 1:	
-					
+					adam.SelectEmployees();
 					break;		
 				case 2: 		 														
 								break;

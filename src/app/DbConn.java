@@ -5,16 +5,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import java.sql.*;
 
 public class DbConn {
-	public static void main(String[] args) {
+	
 	Connection connection = null;
 	PreparedStatement preparedStatement = null;
+	
+	public void MakeConnection()
+	{
+	
 	try{
 		//makes the connection to the driver
 		Class.forName("com.mysql.jdbc.Driver");
-		connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","root","Staged00r1");
-		
+		connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","root","Bumblebee");
+		System.out.println("Connected");
 	}
 
 	catch (ClassNotFoundException error1){
@@ -30,16 +35,45 @@ public class DbConn {
 		if (preparedStatement!=null)try{
 			preparedStatement.close();
 			}
+		
 		catch (SQLException ignore){
+		}}
 			
 		}
+	
+	public void SelectEmployees()
+	{
+		try{
+		Class.forName("com.mysql.jdbc.Driver");
+		connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","root","Bumblebee");
+		System.out.println("Connected");
+		Statement st = connection.createStatement();
+		ResultSet rs = st.executeQuery( "Select * from Employee limit 5");
+		ResultSetMetaData rsmd = rs.getMetaData();
+		//stackover flow stuff
 		
-	}
-	}
-	
-
-	
+		 System.out.println("querying SELECT * FROM XXX");
+		    int columnsNumber = rsmd.getColumnCount();
+		    while (rs.next()) {
+		        for (int i = 1; i <= columnsNumber; i++) {
+		            if (i > 1) System.out.print(",  ");
+		            String columnValue = rs.getString(i);
+		            System.out.print(columnValue + " " + rsmd.getColumnName(i));
+		        }
+		        System.out.println("");
+		    }
+		    
+		
 		}
+
+		catch (ClassNotFoundException error1){
+			System.out.println("Error:" +error1.getMessage());			
+		}
+		catch (SQLException error){
+			System.out.println("Error:" +error.getMessage());
+		}
+	}
+}
 
 	
 	
