@@ -149,7 +149,7 @@ public class Employee {
 	 try{
 	 Class.forName("com.mysql.jdbc.Driver"); 
 	 connection = DriverManager.getConnection
-	 ("jdbc:mysql://localhost/Nemesis","root","Staged00r1");
+	 ("jdbc:mysql://localhost/Nemesis","HRuser","Password1");
 	 System.out.println("Connected"); 
 	 preparedStatement = connection.prepareStatement("INSERT INTO Employee(Name, Address, NINO, Bank_Acc, Starting_Salary, Department) VALUES (?,?,?,?,?,?)");
 	  preparedStatement.setString(1, name); 
@@ -184,7 +184,7 @@ public class Employee {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(
-					"jdbc:mysql://localhost/Nemesis", "root", "Staged00r1");
+					"jdbc:mysql://localhost/Nemesis", "HRuser","Password1");
 			System.out.println("Connected");
 			Statement st = connection.createStatement();
 			ResultSet rs = st.executeQuery("Select * from Employee limit 5");
@@ -213,7 +213,7 @@ public class Employee {
 public void SelectSalesEmployees(){
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
-		connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","root","Staged00r1");
+		connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","HRuser","Password1");
 		System.out.println("Connected");
 	Statement st = connection.createStatement();
 	ResultSet rs = st.executeQuery( "Select Employee.Name, Commission_Rate, Sales_Total  from Employee, Sales_Employee where Sales_Employee.Employee_ID = Employee.Employee_ID; ");
@@ -243,7 +243,7 @@ public void SelectsAvailableEmployees()
 {
 	try{
 	Class.forName("com.mysql.jdbc.Driver");
-	connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","root","Staged00r1");
+	connection = DriverManager.getConnection("jdbc:mysql://localhost/Nemesis","HRuser","Password1");
 	System.out.println("Connected");
 	Statement st = connection.createStatement();
 	ResultSet rs = st.executeQuery( "Select Employee_ID, Name , Department from Employee where Employee.Employee_ID NOT IN (Select Employee_ID from Project) Group by Department");
