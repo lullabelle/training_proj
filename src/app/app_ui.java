@@ -9,11 +9,13 @@ import employees.Employee;
 public class app_ui {
 
 	public static void main(String[] args) {
+
 		InputStreamReader input = new InputStreamReader(System.in);
 		BufferedReader reader = new BufferedReader(input);
 		Employee emp = new Employee();
 
 		// variables
+
 		int intMenuChoice = 0;
 
 		String tempName;
@@ -57,7 +59,7 @@ public class app_ui {
 			case 4:
 				System.out.print("Name: ");
 				tempName = reader.readLine();
-				
+
 				System.out.print("Address: ");
 				tempAddress = reader.readLine();
 				System.out.print("Enter National Insurance: ");
@@ -68,6 +70,7 @@ public class app_ui {
 				tempSalary = Float.parseFloat(reader.readLine());
 				System.out.print("Enter department: ");
 				tempDept = reader.readLine();
+
 				
 				Employee tmp = new Employee(tempName, tempAddress, tempNINO, tempBank, tempSalary, tempDept);
 				

@@ -24,16 +24,9 @@ public class DbConn {
 				System.out.println(SQL);
 			}
 
+			
+		}
 	
-	}
 }
 	
-	
 
-	
-	
-
-
-	
-	
-	
